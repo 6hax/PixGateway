@@ -5,7 +5,8 @@ import {
   getPayment,
   getPreference,
   checkApproved,
-  cancelPayment
+  cancelPayment,
+  webhook
 } from "#controllers";
 
 const router = express.Router();
@@ -21,6 +22,6 @@ router.get("/check/all/:paymentId/:preferenceId", authMiddleware, checkApproved)
 
 router.post("/cancel/:id", authMiddleware, cancelPayment);
 
-// router.post("/webhook", _) // soon
+router.post("/webhook", webhook)
 
 export default router;
