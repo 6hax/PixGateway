@@ -1,5 +1,6 @@
 import { MercadoPagoConfig, MerchantOrder, Payment as PaymentGateway, Preference } from "mercadopago";
 import "dotenv/config";
+import { env } from "#config"
 
 class Payment {
  constructor() {
@@ -63,6 +64,7 @@ class Payment {
     transaction_amount: parseFloat(amount.toFixed(2)),
     description: description.substring(0, 255),
     payment_method_id: "pix",
+    notification_url: `${env.baseUrl}/api/webhook/`,
     payer: {
      email: "mail@mail.com",
      first_name: "Josh",
