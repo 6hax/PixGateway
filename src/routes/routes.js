@@ -6,7 +6,7 @@ import {
   getPreference,
   checkApproved,
   cancelPayment,
-} from "../controllers/paymentController.js";
+} from "#controllers";
 
 const router = express.Router();
 
