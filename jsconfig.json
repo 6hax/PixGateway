@@ -1,0 +1,28 @@
+ {
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "#root/*": [
+        "./src/*"
+      ],
+      "#config": [
+        "./src/config/index.js"
+      ],
+      "#routes": [
+        "./src/routes/routes.js"
+      ],
+      "#middlewares": [
+        "./src/middlewares/index.js"
+      ],
+      "#controllers": [
+        "./src/controllers/index.js"
+      ],
+      "#services": [
+        "./src/services/index.js"
+      ]
+    }
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
