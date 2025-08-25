@@ -16,5 +16,13 @@
     "express": "^5.1.0",
     "express-rate-limit": "^8.0.1",
     "mercadopago": "^2.8.0"
+  },
+  "imports": {
+    "#root/*": "./src/*",
+    "#config": "./src/config/index.js",
+    "#routes": "./src/routes/routes.js",
+    "#middlewares": "./src/middlewares/index.js",
+    "#controllers": "./src/controllers/index.js",
+    "#services": "./src/services/index.js"
   }
 }
