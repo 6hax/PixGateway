@@ -4,7 +4,7 @@ const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 100,
   message: {
-    error: "Muitas requisições, tente novamente mais tarde.",
+    error: "Too many requests, please try again later.",
   },
   standardHeaders: true,
   legacyHeaders: false,
