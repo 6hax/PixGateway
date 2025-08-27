@@ -1,4 +1,5 @@
-import { Payment } from "../services/Payment.js";
+import { Payment } from "#services";
+import "dotenv/config";
 
 export function authMiddleware(req, res, next) {
   const token = req.headers["authorization"];
