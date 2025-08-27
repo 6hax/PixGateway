@@ -41,7 +41,7 @@ class Payment {
      },
     ],
     payer: {
-     email: "contato.nestapps@gmail.com",
+     email: "mail@mail.com",
      first_name: "Nest",
      last_name: "Apps",
      identification: {
