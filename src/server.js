@@ -6,7 +6,6 @@ import { limiter } from "#middlewares";
 
 const app = express();
 app.use(bodyParser.json());
-app.use(limiter);
 app.use("/api", paymentRoutes);
 
 app.listen(env.port, () => {
