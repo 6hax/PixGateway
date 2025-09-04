@@ -10,7 +10,6 @@ export const checkApproved = async (req, res) => {
   }
 };
 
-
 export const checkPayment = async (req, res) => {
   try {
     const result = await req.payment.checkPayment(req.params.paymentId);
