@@ -1,6 +1,9 @@
 import { env } from "#config"
 
 async function createPayment(amount, description) {
+ 
+ const identification = { type: "CPF", number: "94118546051" }
+
  if (typeof amount !== "number" || amount <= 0) {
   throw new Error("Valor do pagamento deve ser um número positivo");
  }
@@ -23,7 +26,7 @@ async function createPayment(amount, description) {
     email: "mail@mail.com",
     first_name: "Nest",
     last_name: "Apps",
-    identification: { type: "CPF", number: "94118546051" },
+    identification,
    },
   };
 
@@ -45,7 +48,7 @@ async function createPayment(amount, description) {
     email: "mail@mail.com",
     first_name: "Nest",
     last_name: "Apps",
-    identification: { type: "CPF", number: "94118546051" },
+    identification,
    },
   };
 
@@ -54,9 +57,11 @@ async function createPayment(amount, description) {
    requestOptions: this.requestOptions,
   });
 
+
   if (!response?.id || !response.point_of_interaction) {
    throw new Error("Falha ao criar pagamento: resposta inválida");
   }
+  
 
   return {
    paymentId: response.id.toString(),
@@ -82,4 +87,4 @@ async function createPayment(amount, description) {
  }
 }
 
-export { createPayment }
+export { createPayment };
