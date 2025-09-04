@@ -1,6 +1,8 @@
 import "dotenv/config";
 
+
 async function checkApprovedPayment(paymentId, preferenceId) {
+
  if (!paymentId || !preferenceId) {
   const errorMsg = `IDs necessários não fornecidos: paymentId=${paymentId}, preferenceId=${preferenceId}`;
   console.error(errorMsg);
@@ -47,7 +49,9 @@ async function checkApprovedPayment(paymentId, preferenceId) {
    fullyApproved: results.paymentApproved && results.preferenceApproved,
    lastChecked: new Date().toISOString(),
   };
+
  } catch (error) {
+
   console.error("Erro ao verificar pagamento:", {
    paymentId,
    preferenceId,
@@ -61,6 +65,7 @@ async function checkApprovedPayment(paymentId, preferenceId) {
    error: error.message,
    lastChecked: new Date().toISOString(),
   };
+
  }
 }
 
