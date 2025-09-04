@@ -1,6 +1,5 @@
 import "dotenv/config";
 
-
 async function cancelPayment(paymentId) {
  if (!paymentId) {
   throw new Error("ID do pagamento é obrigatório");
