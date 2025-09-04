@@ -1,14 +1,14 @@
 const URL = "http://localhost:3000/api/payment";
 let count = 0;
-const TOTAL = 200; 
-const TOKEN = ""; 
+const TOTAL = 200;
+const TOKEN = "";
 
 async function spam() {
   for (let i = 1; i <= TOTAL; i++) {
     console.log(`🚀 Enviando requisição #${i}`);
     fetch(URL, {
       method: "POST",
-      headers: { 
+      headers: {
         "Content-Type": "application/json",
         "Authorization": TOKEN
       },
