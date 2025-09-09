@@ -7,7 +7,6 @@ export const getPayment = async (req, res) => {
     res.status(404).json({ error: err.message });
   }
 };
-
 export const getPreference = async (req, res) => {
   try {
     const result = await req.payment.getPreferenceData(req.params.id);
