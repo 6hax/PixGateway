@@ -1,30 +1,12 @@
 import express from "express";
-import { authMiddleware, limiter } from "#middlewares";
-import {
-  createPayment,
-  getPayment,
-  getPreference,
-  checkApproved,
-  cancelPayment,
-  webhook
-} from "#controllers";
+import apiRouter from "./api.js";
+import mainRouter from "./main.js";
 
 const router = express.Router();
 
-router.use(limiter)
+router.use("/api", apiRouter);
 
-router.post("/payment", authMiddleware, createPayment);
 
-router.get("/payment/:id", authMiddleware, getPayment);
-router.get("/preference/:id", authMiddleware, getPreference);
-
-// router.get("/check/payment/:paymentId", authMiddleware, _); // soon
-// router.get("/check/preference/:preferenceId", authMiddleware, _); // soon
-
-router.get("/check/all/:paymentId/:preferenceId", authMiddleware, checkApproved);
-
-router.post("/cancel/:id", authMiddleware, cancelPayment);
-
-router.post("/webhook", webhook)
+router.use("/", mainRouter);
 
 export default router;
