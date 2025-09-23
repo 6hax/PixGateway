@@ -57,11 +57,6 @@ Todas as rotas (exceto webhook) exigem:
 ```
 Authorization: Bearer SEU_ACCESS_TOKEN_MERCADO_PAGO
 ```
-
-## 📖 Documentação Completa
-
-Acesse a documentação interativa em: `http://localhost:3000`
-
 ## 🧪 Scripts de Teste
 
 ```bash
