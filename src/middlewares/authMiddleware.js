@@ -8,8 +8,7 @@ export function authMiddleware(req, res, next) {
   }
 
   try {
-    process.env.ACESSTOKEN = token.replace("Bearer ", "");
-    req.payment = new Payment();
+    req.payment = new Payment(token.replace("Bearer ", ""));
     next();
   } catch (err) {
     return res.status(401).json({ error: err.message });
