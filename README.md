@@ -1,4 +1,4 @@
-# PixGateway API
+# LunaPay API
 
 API em Node.js/Express para integração com Mercado Pago (PIX). Inclui autenticação via Bearer token, rate limiting e documentação completa.
 
@@ -74,3 +74,4 @@ node scripts/testeRateLimit.js
 
 
 hax
+
