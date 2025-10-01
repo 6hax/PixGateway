@@ -1,29 +1,29 @@
-export const checkApproved = async (req, res) => {
+export const check = async (req, res) => {
+  const { paymentId, preferenceId } = req.body;
   try {
-    const result = await req.payment.checkApprovedPayment(
-      req.params.paymentId,
-      req.params.preferenceId
-    );
-    res.status(200).json(result);
-  } catch (err) {
-    res.status(400).json({ error: err.message });
-  }
-};
+    if (paymentId && preferenceId) {
+      const result = await req.payment.checkApprovedPayment(
+        paymentId,
+        preferenceId
+      );
+      return res.status(200).json(result)
+    }
+    if (paymentId) {
+      const result = await req.payment.checkPayment(
+        paymentId
+      );
+      return res.status(200).json(result)
+    }
+    if (preferenceId) {
+      const result = await req.payment.checkPreference(
+        preferenceId
+      );
+      return res.status(200).json(result)
+    }
 
-export const checkPayment = async (req, res) => {
-  try {
-    const result = await req.payment.checkPayment(req.params.paymentId);
-    res.status(200).json(result);
-  } catch (err) {
-    res.status(400).json({ error: err.message });
+    return res.status(400).json({ error: "parametros invalidos." });
   }
-}
-
-export const checkPreference = async (req, res) => {
-  try {
-    const result = await req.payment.checkPreference(req.params.preferenceId);
-    res.status(200).json(result);
-  } catch (err) {
-    res.status(400).json({ error: err.message });
+  catch (error) {
+    return res.status(400).json({ error: error.message });
   }
 }
