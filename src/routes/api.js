@@ -4,20 +4,20 @@ import {
     createPayment,
     getPayment,
     getPreference,
-    checkApproved,
     cancelPayment,
-    webhook
+    webhook,
+    check
 } from "#controllers";
 
 const router = express.Router();
 
 router.use(limiter);
 
-router.post("/payment", authMiddleware, createPayment);
 router.get("/payment/:id", authMiddleware, getPayment);
 router.get("/preference/:id", authMiddleware, getPreference);
 
-router.get("/check/all/:paymentId/:preferenceId", authMiddleware, checkApproved);
+router.post("/payment", authMiddleware, createPayment);
+router.post("/check", authMiddleware, check);
 router.post("/cancel/:id", authMiddleware, cancelPayment);
 router.post("/webhook", webhook);
 
