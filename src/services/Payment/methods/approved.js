@@ -47,7 +47,6 @@ async function checkApprovedPayment(paymentId, preferenceId) {
       fullyApproved: results.paymentApproved && results.preferenceApproved,
       lastChecked: new Date().toISOString(),
     };
-
   } catch (error) {
     console.error("Erro ao verificar pagamento:", { paymentId, preferenceId, error: error.message });
     return {
