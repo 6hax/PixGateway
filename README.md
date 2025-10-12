@@ -61,7 +61,7 @@ BASE_URL=http://localhost:3000
 | `POST` | `/payment`                            | Criar pagamento PIX            |
 | `GET`  | `/payment/:id`                        | Obter informações de pagamento |
 | `GET`  | `/preference/:id`                     | Obter preferência de pagamento |
-| `GET`  | `/check/all/:paymentId/:preferenceId` | Verificar aprovação            |
+| `POST`  | `/check`                             | Verificar aprovação            |
 | `POST` | `/cancel/:id`                         | Cancelar pagamento             |
 | `POST` | `/webhook`                            | Webhook (sem autenticação)     |
 
@@ -105,5 +105,6 @@ node scripts/testeRateLimit.js
 
 > Building secure and modern integrations 🌙
 > GitHub: [@6hax](https://github.com/6hax)
+
 
 
