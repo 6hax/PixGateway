@@ -1,77 +1,109 @@
+
 # LunaPay API
 
-API em Node.js/Express para integração com Mercado Pago (PIX). Inclui autenticação via Bearer token, rate limiting e documentação completa.
+![LunaPay Banner](https://img.shields.io/badge/LunaPay-PIX-blueviolet?style=for-the-badge&logo=mercadopago&logoColor=white)
 
-## 🚀 Tecnologias
+> API Node.js/Express para integração com **Mercado Pago (PIX)**.  
+> Inclui autenticação via **Bearer Token**, **Rate Limiting** e **documentação completa**.
 
-- **Node.js** (ES Modules)
-- **Express 5.1.0**
-- **Mercado Pago SDK**
-- **Rate Limiting** (100 req/15min)
+---
 
-## 📁 Estrutura
+
+## 📂 Estrutura do Projeto
 
 ```
+
 src/
 ├─ server.js                    # Servidor Express
-├─ config/                      # Configurações
-├─ controllers/                 # Controllers da API
+├─ config/                      # Configurações globais
+├─ controllers/                 # Lógica dos endpoints
 ├─ middlewares/                 # Autenticação e Rate Limiting
-├─ routes/                      # Definição de rotas
-└─ services/                    # Integração Mercado Pago
-```
+├─ routes/                      # Definição das rotas
+└─ services/                    # Integração com Mercado Pago
+
+````
+
+---
 
 ## ⚙️ Instalação
 
 ```bash
 npm install
 npm run dev
-```
+````
+
+> [!NOTE]
+> Usa **nodemon** no desenvolvimento para recarregar automaticamente ao salvar alterações.
+
+---
 
 ## 🔧 Configuração
 
-Crie um arquivo `.env`:
+Crie um arquivo `.env` na raiz:
 
 ```env
 PORT=3000
 BASE_URL=http://localhost:3000
 ```
 
+> [!IMPORTANT]
+> Defina o token do Mercado Pago via **header Authorization**.
+> Nunca armazene tokens sensíveis no código.
+
+---
+
 ## 📡 Endpoints
 
 **Base URL:** `http://localhost:3000/api`
 
-| Método | Endpoint | Descrição |
-|--------|----------|-----------|
-| POST | `/payment` | Criar pagamento PIX |
-| GET | `/payment/:id` | Obter pagamento |
-| GET | `/preference/:id` | Obter preferência |
-| GET | `/check/all/:paymentId/:preferenceId` | Verificar aprovação |
-| POST | `/cancel/:id` | Cancelar pagamento |
-| POST | `/webhook` | Webhook (sem auth) |
+| Método | Endpoint                              | Descrição                      |
+| ------ | ------------------------------------- | ------------------------------ |
+| `POST` | `/payment`                            | Criar pagamento PIX            |
+| `GET`  | `/payment/:id`                        | Obter informações de pagamento |
+| `GET`  | `/preference/:id`                     | Obter preferência de pagamento |
+| `GET`  | `/check/all/:paymentId/:preferenceId` | Verificar aprovação            |
+| `POST` | `/cancel/:id`                         | Cancelar pagamento             |
+| `POST` | `/webhook`                            | Webhook (sem autenticação)     |
+
+> [!TIP]
+> `/webhook` é público, use apenas para notificações do Mercado Pago.
+
+---
 
 ## 🔐 Autenticação
 
-Todas as rotas (exceto webhook) exigem:
+Adicione o header em todas as requisições (exceto webhook):
 
 ```
 Authorization: Bearer SEU_ACCESS_TOKEN_MERCADO_PAGO
 ```
+
+> [!IMPORTANT]
+> Tokens inválidos ou ausentes retornam **401 Unauthorized**.
+
+---
+
 ## 🧪 Scripts de Teste
 
 ```bash
-# Testar rate limiting
+# Testar limite de requisições
 node scripts/testeRateLimit.js
 
-# Scripts shell (edite as variáveis primeiro)
+# Scripts shell (editar variáveis primeiro)
 ./scripts/create_payment.sh
 ./scripts/get_payment.sh
 ./scripts/check_approved.sh
 ./scripts/cancel_payment.sh
 ```
 
-## Author
+---
 
 
-hax
+## 👤 Autor
+
+**hax**
+
+> Building secure and modern integrations 🌙
+> GitHub: [@6hax](https://github.com/6hax)
+
 
